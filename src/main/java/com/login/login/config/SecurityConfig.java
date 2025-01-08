@@ -15,7 +15,8 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {//Http objktet använder vi för att sätta upp konfigation för vilka request som kommer in och vilka säkerhet som krävs när det kommer in
         http
         .authorizeRequests((request) -> request
-            .requestMatchers("/home").permitAll() // tillåter åtkomst åt alla
+            .requestMatchers("/").permitAll() // tillåter åtkomst åt alla
+            // .requestMatchers("/home").permitAll() // tillåter åtkomst åt alla
             .requestMatchers("/register").permitAll() // tillåter åtkomst åt alla
             .requestMatchers("/login").permitAll() // tillåter åtkomst åt alla
             .requestMatchers("/images/**").permitAll() // tillåter åtkomst åt alla
