@@ -6,13 +6,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @Controller
-@RequestMapping("/")
-public class HomeController {
+// @RequestMapping("/inventory")
+public class InventoryController {
 
-    @GetMapping("/")
-    public String home(){
-        return "/home";
+
+    @GetMapping("/inventory")
+    public String inventoryPage(){
+        return "inventory";
     }
-
-
+    
 }

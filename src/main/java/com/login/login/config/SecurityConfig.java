@@ -18,6 +18,7 @@ public class SecurityConfig {
             .requestMatchers("/").permitAll() // tillåter åtkomst åt alla
             .requestMatchers("/home").permitAll() // tillåter åtkomst åt alla
             .requestMatchers("/register").permitAll() // tillåter åtkomst åt alla
+            .requestMatchers("/inventory").authenticated()
             .anyRequest().authenticated() // kräver inloggning
         )
 
@@ -34,13 +35,10 @@ public class SecurityConfig {
             .logoutSuccessUrl("/")
         )
 
-        
+        .exceptionHandling(exceptionHandling -> exceptionHandling
+            .authenticationEntryPoint((request, response, authException) -> response.sendRedirect("/")) // Omdirigerar till startsidan vid obehörig åtkomst
+        )
 
-
-    //     .logout(logout -> logout
-    //         .logoutUrl("/logout") // Specificerar URL för utloggning
-    //         .logoutSuccessUrl("/") // Omdirigerar till startsidan efter utloggning
-    // )
         .httpBasic(Customizer.withDefaults()); // vad sker om man misslyckas med att loggas in, då kommer den hit ist. kommer upp som en promt på webbläsaren. 
 
         return http.build();
