@@ -16,18 +16,31 @@ public class SecurityConfig {
         http
         .authorizeRequests((request) -> request
             .requestMatchers("/").permitAll() // tillåter åtkomst åt alla
-            // .requestMatchers("/home").permitAll() // tillåter åtkomst åt alla
+            .requestMatchers("/home").permitAll() // tillåter åtkomst åt alla
             .requestMatchers("/register").permitAll() // tillåter åtkomst åt alla
-            .requestMatchers("/login").permitAll() // tillåter åtkomst åt alla
-            .requestMatchers("/images/**").permitAll() // tillåter åtkomst åt alla
             .anyRequest().authenticated() // kräver inloggning
         )
-        
-        .formLogin(form -> form
-            .loginPage("/login")
-            .failureUrl("/login-error.html")
-            .permitAll()) 
 
+        
+        
+        .formLogin(formLogin -> formLogin
+            .loginProcessingUrl("/login")
+            .defaultSuccessUrl("/")
+            .permitAll()
+        )
+
+        .logout(logout -> logout
+            .logoutUrl("/logout")
+            .logoutSuccessUrl("/")
+        )
+
+        
+
+
+    //     .logout(logout -> logout
+    //         .logoutUrl("/logout") // Specificerar URL för utloggning
+    //         .logoutSuccessUrl("/") // Omdirigerar till startsidan efter utloggning
+    // )
         .httpBasic(Customizer.withDefaults()); // vad sker om man misslyckas med att loggas in, då kommer den hit ist. kommer upp som en promt på webbläsaren. 
 
         return http.build();
