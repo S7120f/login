@@ -15,14 +15,17 @@
           <a th:href="@{/register}">Registerings sida</a>
         </div>
         <div>
-          <span sec:authorize="isAuthenticated()"><a th:href="@{/inventory}">Mina ordrar</a></span></li>  
+          <span sec:authorize="isAuthenticated()">
+            <a th:href="@{/inventory}">Mina ordrar</a></span>
         </div>
 
         <div>
-          <span sec:authorize="!isAuthenticated()"><a th:href="@{/login}">Logga in</a></span></li>  
+          <span sec:authorize="!isAuthenticated()">
+            <a th:href="@{/login}">Logga in</a></span>
         </div>
         <div>
-          <span sec:authorize="isAuthenticated()" ><a th:href="@{/logout}">Logga ut</a></span>
+          <span sec:authorize="isAuthenticated()" >
+            <a th:href="@{/logout}">Logga ut</a></span>
         </div>
       </ul>
  </div>
