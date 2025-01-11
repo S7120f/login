@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detaljsida</title>
+</head>
+<body>
+    <h1 th:text="${product.name}">Produktnamn</h1>
+    <img th:src="${product.imageUrl}" alt="Produktbild">
+    <p th:text="${product.description}">Produktbeskrivning</p>
+    <p>Pris: <span th:text="${product.price}">Produktpris</span>:-</p>
+    <a th:href="@{/}">Tillbaka till startsidan</a>
+</body>
+</html>

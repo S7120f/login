@@ -7,6 +7,7 @@
 </head>
 <body>
 
+   
     <form th:action="@{/register}" method="post" role="form" th:object="${user}">
         <label for="firstName">Förnamn:</label>
         <input th:field="*{firstName}" type="text" id="firstName" name="firstName" placeholder="Enter your Firstname"
@@ -32,7 +33,14 @@
         <input th:field="*{password}" type="password" id="password" name="password" placeholder="Enter your Password" required>
 
         <input type="submit" value="Registrera">
-    </form>
 
+    </form>
+    <div>
+        <span th:if="${Userexist}" style="color: red;">Användarnamn upptagen </span>
+        <span th:if="${Emailexist}" style="color: red;">E-postadress upptagen </span>
+
+    </div>
+
+ </span>
 </body>
 </html>
