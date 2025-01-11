@@ -1,45 +1,22 @@
-package com.login.login.model;
+package com.dto;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 
-@Entity
-@Table(name = "users")
-public class User {
+public class UserDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // olika id i ordning, nytt genererat id i nummer ordning(Identity) per ny användare.
-    private int id; // primarykey 
+    
     private String firstName;
     private String lastName;
     private String email;
-    @Column(unique = true)
     private String username; 
-    private String password; 
+    private String password;
 
-    public User() {} // default konstruktor - utan parametrar 
-
-    public User(String firstName, String lastName, String email, String username, String password) { // vi vill inte tala om vilket id användaren ska ha, detta sker via databasen
-                                                                                                    // därav har vi inte med id:et i vår konstruktor
+    public UserDto(String firstName, String lastName, String email, String username, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.username = username;
         this.password = password;
-
-        
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getFirstName() {
@@ -80,11 +57,10 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
+    } 
 
     
 
-
-
+    
     
 }
