@@ -9,6 +9,8 @@ public interface UserRepository extends CrudRepository<User, Integer>{
 
     public User findByUsername (String username); // hitta användare via användarnamn
 
+    public User findByEmail(String email); // hitta användare via e-post
+
     User save(UserDto userDto);
     
 }

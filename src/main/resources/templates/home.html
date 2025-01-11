@@ -12,7 +12,9 @@
   <div>
       <ul>
         <div>
+        <span  sec:authorize="!isAuthenticated()">
           <a th:href="@{/register}">Registerings sida</a>
+        </span>
         </div>
         <div>
           <span sec:authorize="isAuthenticated()">
@@ -29,6 +31,15 @@
         </div>
       </ul>
  </div>
+
+ <main>
+  <h2>Produkter</h2>
+  <div th:each="product : ${products}">
+    <h3><a th:href="@{/products/{id}(id=${product.id})}" th:text="${product.name}">Produktnamn</a></h3>
+    <img th:src="${product.imageUrl}" alt="Produktbild">
+    <p>Pris: <span th:text="${product.price}">Produktpris</span>:-</p>
+  </div>
+</main>
 
 
 </body>
