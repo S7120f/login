@@ -3,13 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
     <title>Detaljsida</title>
 </head>
 <body>
-    <h1 th:text="${product.name}">Produktnamn</h1>
-    <img th:src="${product.imageUrl}" alt="Produktbild">
-    <p th:text="${product.description}">Produktbeskrivning</p>
-    <p>Pris: <span th:text="${product.price}">Produktpris</span>:-</p>
-    <a th:href="@{/}">Tillbaka till startsidan</a>
+    <header>
+        <h1>Produktdetaljer</h1>
+    </header>
+    
+    <nav>
+        <a th:href="@{/}">Startsidan</a>
+    </nav>
+    
+    <main>
+        <div class="product-detail">
+            <h2 th:text="${product.name}">Produktnamn</h2>
+            <div class="product-info">
+                <img th:src="@{/images/{imageUrl}(imageUrl=${product.imageUrl})}" alt="Produktbild">
+                <div class="product-description">
+                    <p th:text="${product.description}">Produktbeskrivning</p>
+                    <p> Pris: <span th:text="${product.price}">Produktpris</span>:-</p>
+                    <button sec:authorize="isAuthenticated()">Lägg till i kundvagn</button>
+                </div>
+            </div>
+            
+            <a th:href="@{/}">Tillbaka till startsidan</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Din Webbutik. Alla rättigheter förbehållna.</p>
+    </footer>
+
 </body>
 </html>

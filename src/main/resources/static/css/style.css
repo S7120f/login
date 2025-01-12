@@ -1,0 +1,200 @@
+/* Grundläggande Layout */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+header h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+/* Navigering */
+nav {
+    background-color: #343a40;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Produkter */ 
+
+main {
+    padding: 20px;
+}
+
+.products {
+    display: flex;
+    flex-wrap: nowrap;
+    /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
+    gap: 20px;
+    overflow-x: auto;
+}
+
+.product-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 150px;
+    flex: 0 0 auto;
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.product-card p {
+    font-size: 1rem;
+    margin: 5px 0;
+}
+
+.product-card button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 1rem;
+}
+
+.product-card button:hover {
+    background-color: #218838;
+}
+
+/* Formulär */
+form {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 50px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+form input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+form input[type="submit"] {
+    background-color: #0056b3;
+}
+
+/* Footer */
+
+footer {
+    background-color:  #343a40;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.product-detail {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-info {
+    display: flex;
+    gap: 20px;
+}
+
+.product-info img {
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product-description {
+    max-width: 600px;
+}
+
+.product-description h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.product-description p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.product-description span {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.product-description button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.product-description button:hover {
+    background-color: #218838;
+}
