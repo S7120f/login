@@ -24,6 +24,10 @@ public class SecurityConfig {
             .requestMatchers("/inventory").permitAll() //tillåter åtkomst åt alla - eftersom inventorycontroller modifiera inventory måste man vara i inloggad läge oavsett denna behörighet 
             .requestMatchers("/products").permitAll()
             .requestMatchers("/products/**").permitAll()
+            .requestMatchers("/images/**").permitAll()
+            .requestMatchers("/css/**").permitAll()
+            // .requestMatchers("/images").permitAll()
+
 
             .anyRequest().authenticated() // kräver inloggning
         )

@@ -4,43 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Start sida</title>
-  <link th:rel="stylesheet" th:href="style.css">
+  <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-  <h1>Min Hemsida!</h1>
 
-  <div>
-      <ul>
-        <div>
-        <span  sec:authorize="!isAuthenticated()">
-          <a th:href="@{/register}">Registerings sida</a>
-        </span>
-        </div>
-        <div>
-          <span sec:authorize="isAuthenticated()">
-            <a th:href="@{/inventory}">Mina ordrar</a></span>
-        </div>
+  <header>
+    <h1>PowerPulse</h1>
+    <h2>Feel the Pulse of Energy"</h2>
+  </header>
 
-        <div>
-          <span sec:authorize="!isAuthenticated()">
-            <a th:href="@{/login}">Logga in</a></span>
-        </div>
-        <div>
-          <span sec:authorize="isAuthenticated()" >
-            <a th:href="@{/logout}">Logga ut</a></span>
-        </div>
-      </ul>
- </div>
+  <nav>
+    <a th:href="@{/register}" sec:authorize="!isAuthenticated()">Registerings sida</a>
+    <a th:href="@{/inventory}" sec:authorize="isAuthenticated()">Mina ordrar</a>
+    <a th:href="@{/login}" sec:authorize="!isAuthenticated()">Logga in</a>
+    <a th:href="@{/logout}" sec:authorize="isAuthenticated()">Logga ut</a></span>
+  </nav>
 
- <main>
-  <h2>Produkter</h2>
-  <div th:each="product : ${products}">
-    <h3><a th:href="@{/products/{id}(id=${product.id})}" th:text="${product.name}">Produktnamn</a></h3>
-    <img th:src="${product.imageUrl}" alt="Produktbild">
-    <p>Pris: <span th:text="${product.price}">Produktpris</span>:-</p>
-  </div>
-</main>
+  <main>
+    <h2>Produkter</h2>
+    <div class="products" th:each="product : ${products}">
+      <div class="product-card">
+        <h3><a th:href="@{/products/{id}(id=${product.id})}" th:text="${product.name}">Produktnamn</a></h3>
+        <img th:src="@{/images/{imageUrl}(imageUrl=${product.imageUrl})}" alt="Produktbild">
+        <p>Pris: <span th:text="${product.price}">Produktpris</span>:-</p>
+        <button sec:authorize="isAuthenticated()">Lägg till i kundvagn</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+      &copy; 2025 PowerPulse
+  </footer>
 
 
-</body>
+  </body>
 </html>
